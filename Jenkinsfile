@@ -37,7 +37,7 @@ pipeline {
 
         stage ("Push docker image fe-angular to hub") {
             steps {
-                withDockerRegistry([credentialsId: "${CREDENTIAL_ID}", url: "http://${ARTIFACT_REPOSITORY}"]) {
+                withDockerRegistry([credentialsId: "${CREDENTIAL_ID}", url: "https://hub.docker.com/"]) {
                     sh "docker tag ${BUILD_IMAGE} ${DEPLOY_IMAGE}"
                     sh "docker push ${DEPLOY_IMAGE}"
                 }
