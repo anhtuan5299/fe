@@ -37,9 +37,9 @@ pipeline {
 
         stage ("Push docker image fe-angular to hub") {
             steps {
-                withDockerRegistry([credentialsId: "${CREDENTIAL_ID}", url: "https://hub.docker.com/"]) {
+                withDockerRegistry([credentialsId: "${CREDENTIAL_ID}", url: "https://hub.docker.com"]) {
                     sh "docker tag ${BUILD_IMAGE} ${DEPLOY_IMAGE}"
-                    sh "docker push ${DEPLOY_IMAGE}"
+                    sh "docker push https://hub.docker.com/${BUILD_IMAGE}"
                 }
             }
         }
@@ -48,7 +48,7 @@ pipeline {
     post {
         always {
             echo 'Cleaning up workspace'
-            sh "docker rmi ${DEPLOY_IMAGE} || true"
+            sh "docker rmi https://hub.docker.com/${BUILD_IMAGE} || true"
             sh "docker rmi ${BUILD_IMAGE} || true"
             deleteDir() 
         }
