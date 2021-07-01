@@ -50,7 +50,6 @@ pipeline {
             echo 'Cleaning up workspace'
             sh "docker rmi https://hub.docker.com/${BUILD_IMAGE} || true"
             sh "docker rmi ${BUILD_IMAGE} || true"
-            deleteDir() 
         }
     }
 }
