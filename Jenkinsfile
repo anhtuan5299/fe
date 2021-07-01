@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label "Angular"
+        label "anhtuan"
     }
 
     environment {
