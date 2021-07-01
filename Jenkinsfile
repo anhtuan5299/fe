@@ -14,7 +14,7 @@ pipeline {
         )
 
         ARTIFACT_REPOSITORY = "10.88.231.22:9095"
-        CREDENTIAL_ID = "dockerHub"
+        CREDENTIAL_ID = "dockerhub"
 
         BUILD_IMAGE = "fe-angular:${GIT_COMMIT_DATE.take(10)}_${GIT_COMMIT_SHORT}"
         DEPLOY_IMAGE = "${ARTIFACT_REPOSITORY}/${BUILD_IMAGE}"
