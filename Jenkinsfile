@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label "10.88.231.22"
+        label "Angular"
     }
 
     environment {
