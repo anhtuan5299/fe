@@ -42,7 +42,6 @@ pipeline {
                    def appimage = docker.build ARTIFACT_REPOSITORY
                    docker.withRegistry( '', registryCredential ) {
                        appimage.push()
-                       appimage.push(' latest ')
                    }
                }
            }
